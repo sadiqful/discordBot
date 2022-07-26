@@ -3,6 +3,7 @@ import os
 import requests
 import json
 import random
+from replit import db
 
 client = discord.Client()
 
@@ -25,6 +26,14 @@ def get_qoute():
     qoute = json_data[0]['q'] + " -" + json_data[0]['a']
     return qoute
 
+def update_encouragements(encouraging_message):
+  if "encouragements" in db.keys():
+    encouragements = db["encouragements"]
+    encouragements.append(encouraging_message)
+    db["encouragements"] = encouragements 
+  else: 
+    db["encouragements"] = [encouraging_message]
+    
 
 @client.event
 async def on_ready():
