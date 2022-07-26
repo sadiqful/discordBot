@@ -34,6 +34,11 @@ def update_encouragements(encouraging_message):
   else: 
     db["encouragements"] = [encouraging_message]
     
+def delete_encouragements(index): 
+  encouragements = db["encouragements"]
+  if length.encouragements > index: 
+    del encouragements[index]
+    db["encouragements"] = encouragements
 
 @client.event
 async def on_ready():
