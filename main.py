@@ -36,7 +36,7 @@ def update_encouragements(encouraging_message):
     
 def delete_encouragements(index): 
   encouragements = db["encouragements"]
-  if length.encouragements > index: 
+  if len (encouragements) > index: 
     del encouragements[index]
     db["encouragements"] = encouragements
 
